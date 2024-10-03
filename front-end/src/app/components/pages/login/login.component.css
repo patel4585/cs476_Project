@@ -1,13 +1,3 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: url('../../../../assets/40567272-02.jpg') no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
 .wrapper {
     width: 420px;
     background: transparent;
