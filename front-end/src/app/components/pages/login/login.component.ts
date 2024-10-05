@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.linkElement.href = 'https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css';
     document.head.appendChild(this.linkElement);
 
+    document.title = 'Login Page';
     document.body.classList.add('login-page-body');
   }
 
@@ -27,5 +28,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       document.head.removeChild(this.linkElement);
       this.linkElement = null;
     }
+
+    document.title = 'front-end';
   }
 }
