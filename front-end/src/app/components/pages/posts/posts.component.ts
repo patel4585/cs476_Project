@@ -11,16 +11,16 @@ export interface allposts{
 }
 
 const ELEMENT_DATA: allposts[] = [
-  {transaction: 1, name: 'Guanyu', want: 100, currencysymbol: 'CAD',excchangCurrency: 'USD', exchangerate: 0.72},
-  {transaction: 2, name: 'Guanyu', want: 100, currencysymbol: 'CAD',excchangCurrency: 'USD', exchangerate: 0.72},
-  {transaction: 3, name: 'Guanyu', want: 100, currencysymbol: 'CAD',excchangCurrency: 'USD', exchangerate: 0.72},
-  {transaction: 4, name: 'Guanyu', want: 100, currencysymbol: 'CAD',excchangCurrency: 'USD', exchangerate: 0.72},
-  {transaction: 5, name: 'Guanyu', want: 100, currencysymbol: 'CAD',excchangCurrency: 'USD', exchangerate: 0.72},
-  {transaction: 6, name: 'Guanyu', want: 100, currencysymbol: 'CAD',excchangCurrency: 'USD', exchangerate: 0.72},
-  {transaction: 7, name: 'Guanyu', want: 100, currencysymbol: 'CAD',excchangCurrency: 'USD', exchangerate: 0.72},
-  {transaction: 8, name: 'Guanyu', want: 100, currencysymbol: 'CAD',excchangCurrency: 'USD', exchangerate: 0.72},
-  {transaction: 9, name: 'Guanyu', want: 100, currencysymbol: 'CAD',excchangCurrency: 'USD', exchangerate: 0.72},
-  {transaction: 10, name: 'Guanyu', want: 100, currencysymbol: 'CAD',excchangCurrency: 'USD', exchangerate: 0.72},
+  {transaction: 1, name: 'Guanyu', want: 100, currencysymbol: 'CAD',exchangeCurrency: 'USD', exchangerate: 0.72},
+  {transaction: 2, name: 'Guanyu', want: 100, currencysymbol: 'CAD',exchangeCurrency: 'USD', exchangerate: 0.72},
+  {transaction: 3, name: 'Guanyu', want: 100, currencysymbol: 'CAD',exchangeCurrency: 'USD', exchangerate: 0.72},
+  {transaction: 4, name: 'Guanyu', want: 100, currencysymbol: 'CAD',exchangeCurrency: 'USD', exchangerate: 0.72},
+  {transaction: 5, name: 'Guanyu', want: 100, currencysymbol: 'CAD',exchangeCurrency: 'USD', exchangerate: 0.72},
+  {transaction: 6, name: 'Guanyu', want: 100, currencysymbol: 'CAD',exchangeCurrency: 'USD', exchangerate: 0.72},
+  {transaction: 7, name: 'Guanyu', want: 100, currencysymbol: 'CAD',exchangeCurrency: 'USD', exchangerate: 0.72},
+  {transaction: 8, name: 'Guanyu', want: 100, currencysymbol: 'CAD',exchangeCurrency: 'USD', exchangerate: 0.72},
+  {transaction: 9, name: 'Guanyu', want: 100, currencysymbol: 'CAD',exchangeCurrency: 'USD', exchangerate: 0.72},
+  {transaction: 10, name: 'Guanyu', want: 100, currencysymbol: 'CAD',exchangeCurrency: 'USD', exchangerate: 0.72},
 ];
 @Component({
   selector: 'posts',

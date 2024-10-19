@@ -1,3 +1,43 @@
+.form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+td {
+  padding-right: 8px;
+}
+
+.container mat-form-field + mat-form-field {
+  position: relative;
+  margin-left: 8px;
+  margin-bottom: 10px;
+  width: 100%;
+
+}
+mat-label {
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+mat-select{
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+mat-form-field {
+  color: red;
+}
+
+input {
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
 .example-form {
   min-width: 150px;
   max-width: 500px;
@@ -6,8 +46,4 @@
 
 .example-full-width {
   width: 100%;
-}
-
-td {
-  padding-right: 8px;
 }
