@@ -1,14 +1,16 @@
-import { Component,ChangeDetectionStrategy } from '@angular/core';
-import {MatIconModule} from '@angular/material/icon';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatListModule} from '@angular/material/list';
+import { Component } from '@angular/core';
+import {RouterLink, RouterOutlet} from "@angular/router";
+
+
 @Component({
   selector: 'sidebar',
   standalone: true,
-  imports: [MatIconModule,MatListModule, MatDividerModule],
+  imports: [
+    RouterLink,
+    RouterOutlet
+  ],
   templateUrl: './sidebar.component.html',
-  styleUrl: './sidebar.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent {
 
