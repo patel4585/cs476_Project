@@ -1,12 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
   imports: [],
   templateUrl: './signup.component.html',
-  styleUrl: './signup.component.css'
+  styleUrls: ['./signup.component.css']
 })
-export class SignupComponent {
+export class SignupComponent implements OnInit, OnDestroy {
+
+  ngOnInit(): void {
+    document.title = 'Signup Page';
+    document.body.classList.add('signup-page-body');
+  }
+
+  ngOnDestroy(): void {
+    document.body.classList.remove('signup-page-body');
+    document.title = 'front-end';
+  }
 
 }
