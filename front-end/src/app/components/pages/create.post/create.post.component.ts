@@ -7,7 +7,6 @@ import {FormControl, FormGroupDirective, NgForm, Validators,ReactiveFormsModule}
 import {ErrorStateMatcher} from '@angular/material/core';
 import { DatePipe } from '@angular/common';
 
-
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -15,8 +14,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
 }
-
-
 
 @Component({
   selector: 'create.post',
@@ -27,8 +24,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [DatePipe]
 })
-
-
 
 export class CreatePostComponent{
   protected readonly value = signal('');
@@ -45,6 +40,4 @@ export class CreatePostComponent{
   matcher = new MyErrorStateMatcher();
 
   today = new Date();
-
-
 }

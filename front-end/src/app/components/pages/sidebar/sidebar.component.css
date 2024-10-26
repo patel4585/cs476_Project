@@ -1,18 +1,8 @@
-body {
-  min-height: 100vh;
-  min-height: 100%;
-}
-
-html {
-  height: 100%;
-}
-
 main {
   height: 100vh;
   max-height: 100vh;
   overflow-x: auto;
   overflow-y: hidden;
-
 }
 
 .dropdown-toggle { outline: 0; }
@@ -65,5 +55,4 @@ main {
 #content {
   flex-grow: 1;
   padding: 38px 30px;
-
 }

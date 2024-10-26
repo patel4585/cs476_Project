@@ -1,76 +1,76 @@
 <form name="createpost" action="">
-        <h1>Create a post</h1>
-        <hr>
-        <div>
-          <span class="input-box">
-            <label>First Name</label> &nbsp;
-            <input type="text" placeholder="First Name" required>
-            <i class='bx bxs-user'></i>
-        </span> &nbsp;&nbsp;&nbsp;
-          <span class="input-box">
-            <label>Last Name</label> &nbsp;
-            <input type="text" placeholder="Last Name" required>
-            <i class='bx bxs-user'></i>
-        </span>
-        </div>
-        <br>
-        <div>
-        <span class="input-box">
-          <label>Amount willing to pay</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-          <input type="number" placeholder="123.14" required>
-          <i class="bx bxs-user"></i>
-        </span> &nbsp;&nbsp;&nbsp;
-        <span class="input-box">
-          <label for="paycurrency">Choose a currency:</label> &nbsp;
+  <h1>Create a post</h1> <hr>
 
-              <select name="currency1" id="paycurrency">
-              <option value="CAD">CAD</option>
-                <option value="USD">USD</option>
-              <option value="CNY">CNY</option>
-              <option value="audi">INR</option>
-              </select>
-        </span>
-        </div>
-        <br>
-        <div>
-          <span class="input-box">
-            <label>Desired amount in return</label> &nbsp; &nbsp; &nbsp;
-            <input type="number" placeholder="123.14" required>
-            <i class="bx bxs-user"></i>
-          </span> &nbsp;&nbsp;&nbsp;
-          <span class="input-box">
-          <label for="returncurrency">Choose a currency:</label> &nbsp;
-              <select name="currency2" id="returncurrency">
-              <option value="CAD">CAD</option>
-                <option value="USD">USD</option>
-              <option value="CNY">CNY</option>
-              <option value="audi">INR</option>
-              </select>
-        </span>
-        </div>
-        <br>
-        <div>
-          <span class="text-dark-emphasis">
-            <label>Exchange Rate</label> &nbsp; &nbsp; &nbsp;
-            <label class="text-dark-emphasis" id="exchangerate" > auto_calculated_exchange_rate  </label>
-          </span> &nbsp;&nbsp;&nbsp;
-        </div>
-        <br>
-        <div>
-          <span class="input-box">
-            <label for="email">Email </label> &nbsp; &nbsp; &nbsp;
-            <input type="email" id="email" pattern=".+@example\.com" size="50" required />
-          </span>
-        </div>
-        <br>
+  <div>
+    <span class="input-box">
+      <label>First Name</label> &nbsp;
+      <input type="text" placeholder="First Name" required>
+      <i class='bx bxs-user'></i>
+    </span> &nbsp;&nbsp;&nbsp;
 
-        <div>
-          <span class="input-box">
-            <label >Date</label> &nbsp; &nbsp; &nbsp;
-            <label type="date">{{today}}</label>
-          </span>
-        </div>
+    <span class="input-box">
+      <label>Last Name</label> &nbsp;
+      <input type="text" placeholder="Last Name" required>
+      <i class='bx bxs-user'></i>
+    </span>
+  </div> <br>
 
-        <hr>
-        <button type="submit" class="btn btn-primary">Submit</button>
+  <div>
+    <span class="input-box">
+      <label>Amount willing to pay</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      <input type="number" placeholder="123.14" required>
+      <i class="bx bxs-user"></i>
+    </span> &nbsp;&nbsp;&nbsp;
+
+    <span class="input-box">
+      <label for="paycurrency">Choose a currency:</label> &nbsp;
+        <select name="currency1" id="paycurrency">
+          <option value="CAD">CAD</option>
+          <option value="USD">USD</option>
+          <option value="CNY">CNY</option>
+          <option value="audi">INR</option>
+        </select>
+    </span>
+  </div> <br>
+
+  <div>
+    <span class="input-box">
+      <label>Desired amount in return</label> &nbsp; &nbsp; &nbsp;
+      <input type="number" placeholder="123.14" required>
+      <i class="bx bxs-user"></i>
+    </span> &nbsp;&nbsp;&nbsp;
+
+    <span class="input-box">
+      <label for="returncurrency">Choose a currency:</label> &nbsp;
+        <select name="currency2" id="returncurrency">
+          <option value="CAD">CAD</option>
+          <option value="USD">USD</option>
+          <option value="CNY">CNY</option>
+          <option value="audi">INR</option>
+        </select>
+    </span>
+  </div> <br>
+
+  <div>
+    <span class="text-dark-emphasis">
+      <label>Exchange Rate</label> &nbsp; &nbsp; &nbsp;
+      <label class="text-dark-emphasis" id="exchangerate" > auto_calculated_exchange_rate  </label>
+    </span> &nbsp;&nbsp;&nbsp;
+  </div> <br>
+
+  <div>
+    <span class="input-box">
+      <label for="email">Email </label> &nbsp; &nbsp; &nbsp;
+      <input type="email" id="email" pattern=".+@example\.com" size="50" required />
+    </span>
+  </div> <br>
+
+  <div>
+    <span class="input-box">
+      <label >Date</label> &nbsp; &nbsp; &nbsp;
+      <label type="date">{{today}}</label>
+    </span>
+  </div> <hr>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>
