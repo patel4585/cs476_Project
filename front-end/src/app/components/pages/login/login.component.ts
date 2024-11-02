@@ -1,15 +1,22 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [],
+  imports: [ FormsModule ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit, OnDestroy {
 
   private linkElement: HTMLLinkElement | null = null;
+  email: string = "";
+  password: string = "";
+  errorMessage: string = "";
+
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
     this.linkElement = document.createElement('link');
@@ -30,5 +37,20 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
 
     document.title = 'front-end';
+  }
+
+  onLogin(): void {
+    this.authService.login(this.email, this.password).subscribe({
+      next: (response) => {
+        if(response.success) {
+          console.log("Login Successful", response.user);
+        } else {
+          this.errorMessage = response.message || "Login Failed";
+        }
+      },
+      error: (error) => {
+        this.errorMessage = error.message || 'An error occurred';
+      }
+    })
   }
 }
