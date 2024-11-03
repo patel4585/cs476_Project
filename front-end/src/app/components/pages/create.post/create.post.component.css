@@ -1,27 +1,14 @@
-form div {
+div {
     color: #484343;
 }
 
 .input-box input {
-    width: 30%;
+    max-width: 25%;
     height: 100%;
     border: 0.5px solid #635e5e;
     border-radius: 40px;
     font-size: 16px;
-    color: #635e5e;
-    padding: 20px 45px 20px 20px;
-
-}
-
-#date {
-    width: 30%;
-    height: 100%;
-    border: 0.5px solid #635e5e;
-    border-radius: 40px;
-    font-size: 16px;
-    color: #635e5e;
-    padding: 20px 45px 20px 20px;
-
+    padding: 15px 10px 15px 15px;
 }
 
 .input-box input::placeholder {
@@ -34,4 +21,28 @@ form div {
     top: 50%;
     transform: translateY(-50%);
     font-size: 20px;
+}
+
+textarea {
+    width: 100%;             
+    max-width: 500px;        
+    height: 150px;           
+    padding: 10px;           
+    font-size: 16px;                    
+    background-color: #f9f9f9; 
+    border: 1px solid #ccc; 
+    border-radius: 5px;     
+    resize: vertical;    
+    outline: none;   
+    vertical-align: top;
+}
+  
+textarea:focus {
+    border-color: #6610f2;
+    outline: none;         
+    box-shadow: 0 0 0 2px #32558a; 
+}
+
+textarea::placeholder {
+    color: #635e5e; 
 }

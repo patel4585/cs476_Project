@@ -14,7 +14,6 @@ export class AuthService {
   login(email: string, password: string): Observable<any> {
     return this.http.post<any>(this.apiUrl, { email, password }).pipe(
       tap(response => {
-        console.log("here");
         if (response.success) {
           // Store user info in local storage
           localStorage.setItem('user', JSON.stringify(response.user));
