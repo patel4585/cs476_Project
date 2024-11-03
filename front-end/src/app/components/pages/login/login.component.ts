@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   password: string = "";
   errorMessage: string = "";
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.linkElement = document.createElement('link');
@@ -44,6 +45,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       next: (response) => {
         if(response.success) {
           console.log("Login Successful", response.user);
+          this.router.navigate(['/home']);
         } else {
           this.errorMessage = response.message || "Login Failed";
         }
