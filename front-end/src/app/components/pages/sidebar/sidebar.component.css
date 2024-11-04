@@ -67,3 +67,8 @@ main {
   padding: 38px 30px;
 
 }
+.logo {
+  width: 100px;
+  height: auto; 
+  object-fit: contain; 
+}
