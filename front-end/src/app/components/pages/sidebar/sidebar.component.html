@@ -2,13 +2,14 @@
   <h1 class="visually-hidden">Home Page</h1>
 
   <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-light" style="width: 280px; height: 100%">
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-black text-decoration-none">
-      <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-brilliance" viewBox="0 0 16 16">
-        <path d="M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16M1 8a7 7 0 0 0 7 7 3.5 3.5 0 1 0 0-7 3.5 3.5 0 1 1 0-7 7 7 0 0 0-7 7"/>
-      </svg>
-
-      <span class="fs-4" style="color: #635e5e; padding-left: 8px;">Company Name</span>
-    </a> <hr />
+    <a href="/home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-black text-decoration-none">
+      <img src="/assets/logo-only.png" alt="Logo" class="logo me-2">
+      <div>
+        <span class="fs-3" style="color:#635e5e">Remit</span><br>
+        <span class="fs-5" style="color:#635e5e">Wise</span> 
+      </div>
+    </a>
+    <hr />
 
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
@@ -55,9 +56,9 @@
       </li>
     </ul> <hr />
 
-    <div class="dropdown">
-      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle show"
-        data-bs-toggle="dropdown" aria-expanded="true">
+    <div class="dropdown" *ngIf="loggedIn">
+      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+        data-bs-toggle="dropdown" aria-expanded="false">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="rounded-circle me-2" width="32"
           height="32">
           <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
@@ -75,7 +76,7 @@
             transform: translate(0px, -34px);
           " data-popper-placement="top-start">
         <li>
-          <a class="dropdown-item" href="#" style="color: #635e5e">Profile</a>
+          <a class="dropdown-item" href="/profile" style="color: #635e5e">Profile</a>
         </li>
 
         <li>
