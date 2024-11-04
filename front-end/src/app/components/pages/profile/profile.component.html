@@ -1,1 +1,37 @@
-<p>profile works!</p>
+<div class="wrapper">
+    <form (submit)="onUpdateProfile(firstName.value, lastName.value, email.value, newPassword.value, confirmNewPassword.value)">
+        <h1>Profile</h1>
+
+        <!-- First Name -->
+        <div class="input-box">
+            <input type="text" placeholder="First Name" #firstName required>
+            <i class='bx bxs-user'></i>
+        </div>
+
+        <!-- Last Name -->
+        <div class="input-box">
+            <input type="text" placeholder="Last Name" #lastName required>
+            <i class='bx bxs-user'></i>
+        </div>
+
+        <!-- Email -->
+        <div class="input-box">
+            <input type="email" placeholder="name@domain.com" #email required>
+            <i class='bx bxs-envelope'></i>
+        </div>
+
+        <!-- New Password -->
+        <div class="input-box">
+            <input type="password" placeholder="New Password" #newPassword>
+            <i class='bx bxs-lock-alt'></i>
+        </div>
+
+        <!-- Confirm New Password -->
+        <div class="input-box">
+            <input type="password" placeholder="Confirm New Password" #confirmNewPassword>
+            <i class='bx bxs-lock-alt'></i>
+        </div>
+
+        <button type="submit" class="btn">Update Profile</button>
+    </form>
+</div>
