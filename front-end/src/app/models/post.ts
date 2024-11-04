@@ -7,6 +7,6 @@ export interface Post {
     desired_amount_in_return: number;
     desired_amount_in_return_currency: string; 
     additional_details?: string; 
-    createdAt: Date;
-    updatedAt: Date; 
+    createdAt?: Date;
+    updatedAt?: Date; 
 }
