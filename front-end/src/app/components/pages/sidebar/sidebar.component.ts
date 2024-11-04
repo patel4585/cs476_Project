@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {RouterLink, RouterOutlet} from "@angular/router";
 
-
 @Component({
   selector: 'sidebar',
   standalone: true,

@@ -1,44 +1,14 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<h3> All Posts </h3> <hr/>
 
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
-
-  <!-- Position Column -->
-  <ng-container matColumnDef="transaction">
-    <th mat-header-cell *matHeaderCellDef> No. </th>
-    <td mat-cell *matCellDef="let element"> {{element.transaction}} </td>
-  </ng-container>
-
-  <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-  </ng-container>
-
-  <!-- Weight Column -->
-  <ng-container matColumnDef="want">
-    <th mat-header-cell *matHeaderCellDef> Weight </th>
-    <td mat-cell *matCellDef="let element"> {{element.want}} </td>
-  </ng-container>
-
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="currencysymbol">
-    <th mat-header-cell *matHeaderCellDef> Symbol </th>
-    <td mat-cell *matCellDef="let element"> {{element.currencysymbol}} </td>
-  </ng-container>
-
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="excchangCurrency">
-    <th mat-header-cell *matHeaderCellDef> Exchange Currency </th>
-    <td mat-cell *matCellDef="let element"> {{element.exchangeCurrency}} </td>
-  </ng-container>
-
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="exchangerate">
-    <th mat-header-cell *matHeaderCellDef> Symbol </th>
-    <td mat-cell *matCellDef="let element"> {{element.exchangerate}} </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+<div class="posts-container">
+  <div *ngFor="let post of posts" class="post">
+    <ul class="ul-list">
+      <li>{{post.user.first_name}} {{post.user.last_name}}</li>
+      <li class="ul-list-date">{{post.updatedAt | date: 'dd MMMM yyyy, h:mm a'}}</li>
+      <li>Amount Willing to Pay: {{post.amount_willing_to_pay}} {{post.amount_willing_to_pay_currency}}</li>
+      <li>Desired Amount in Return: {{post.desired_amount_in_return}} {{post.desired_amount_in_return_currency}}</li>
+      <li>Email: {{post.user.email}}</li>
+      <li>Addional details: {{post.additional_details}}</li>
+    </ul>
+  </div>
+</div>
