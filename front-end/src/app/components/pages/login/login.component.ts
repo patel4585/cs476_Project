@@ -15,7 +15,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   private linkElement: HTMLLinkElement | null = null;
   email: string = "";
   password: string = "";
-  errorMessage: string = "";
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -47,11 +46,11 @@ export class LoginComponent implements OnInit, OnDestroy {
           console.log("Login Successful", response.user);
           this.router.navigate(['/home']);
         } else {
-          this.errorMessage = response.message || "Login Failed";
+          console.log("Login Failed");
         }
       },
       error: (error) => {
-        this.errorMessage = error.message || 'An error occurred';
+        console.log('An error occurred', error.message);
       }
     })
   }

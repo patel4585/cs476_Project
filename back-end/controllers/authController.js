@@ -19,3 +19,22 @@ exports.loginValidation = asyncHandler(async (req, res, next) => {
     // Password matches
     return res.status(200).json({ success: true, user }); 
 });
+
+exports.signUpValidation = asyncHandler(async (req, res, next) => {
+  const { user } = req.body;
+
+  // Create a new instance of the user model
+  const user01 = new User({
+    first_name: user.first_name,
+    last_name: user.last_name,
+    email: user.email,
+    role: user.role,
+    password: user.password
+  });
+
+  // Save the new User to the database
+  const savedUser = await user01.save();
+
+  // Retrun a success message
+  return res.status(201).json({ success: true, message: "User Account Created Successfully"});
+});

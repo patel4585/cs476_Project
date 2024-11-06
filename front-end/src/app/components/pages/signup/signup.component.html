@@ -1,46 +1,58 @@
 <div class="wrapper">
-    <form action="">
-        <h1>Sign Up</h1>
-
-        <!-- First Name -->
-        <div class="input-box">
-            <input type="text" placeholder="First Name" required>
-            <i class='bx bxs-user'></i>
+    <form #signupForm="ngForm" (submit)="onSubmit()" novalidate>
+      <h1>Sign Up</h1>
+  
+      <!-- First Name -->
+      <div class="input-box">
+        <input type="text" placeholder="First Name" name="firstName" [(ngModel)]="firstName" required #firstNameCtrl="ngModel">
+        <i class='bx bxs-user'></i>
+        <div *ngIf="firstNameCtrl.invalid && firstNameCtrl.touched" class="error-message">
+          <small *ngIf="firstNameCtrl.errors?.['required']">First name is required.</small>
         </div>
-
-        <!-- Last Name -->
-        <div class="input-box">
-            <input type="text" placeholder="Last Name" required>
-            <i class='bx bxs-user'></i>
+      </div>
+  
+      <!-- Last Name -->
+      <div class="input-box">
+        <input type="text" placeholder="Last Name" name="lastName" [(ngModel)]="lastName" required #lastNameCtrl="ngModel">
+        <i class='bx bxs-user'></i>
+        <div *ngIf="lastNameCtrl.invalid && lastNameCtrl.touched" class="error-message">
+          <small *ngIf="lastNameCtrl.errors?.['required']">Last name is required.</small>
         </div>
-
-        <!-- Email -->
-        <div class="input-box">
-            <input type="email" placeholder="name@domain.com" required>
-            <i class='bx bxs-envelope'></i>
+      </div>
+  
+      <!-- Email -->
+      <div class="input-box">
+        <input type="email" placeholder="name@domain.com" name="email" [(ngModel)]="email" required email #emailCtrl="ngModel">
+        <i class='bx bxs-envelope'></i>
+        <div *ngIf="emailCtrl.invalid && emailCtrl.touched" class="error-message">
+          <small *ngIf="emailCtrl.errors?.['required']">email is required.</small>
+          <small *ngIf="emailCtrl.errors?.['email']">Enter a valid email address.</small>
         </div>
-<!--
-         Dropdown for role // we will set user role in database so removing it from singup page
-        <div class="input-box">
-            <select required>
-                <option value="user" selected>Normal User</option>
-                <option value="admin">Admin</option>
-            </select>
-            <i class='bx bxs-user-circle'></i>
+      </div>
+  
+      <!-- Password -->
+      <div class="input-box">
+        <input type="password" name="password1" [(ngModel)]="password" placeholder="Password" required minlength="6" #password1="ngModel">
+        <i class='bx bxs-lock-alt'></i>
+        <div *ngIf="password1.invalid && password1.touched" class="error-message">
+          <small *ngIf="password1.errors?.['required']">Password is required.</small>
+          <small *ngIf="password1.errors?.['minlength']">Password must be at least 6 characters long.</small>
         </div>
-    -->
-        <!-- Password -->
-        <div class="input-box">
-            <input type="password" placeholder="Password" required>
-            <i class='bx bxs-lock-alt'></i>
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="input-box">
-            <input type="password" placeholder="Confirm Password" required>
-            <i class='bx bxs-lock-alt'></i>
-        </div>
-
-        <button type="submit" class="btn">Sign Up</button>
+      </div>
+  
+      <!-- Confirm Password -->
+      <div class="input-box">
+        <input type="password" name="password2" ngModel placeholder="Confirm Password" required #password2="ngModel">
+        <i class='bx bxs-lock-alt'></i>
+        <div *ngIf="password2.touched" class="error-message">
+          <small *ngIf="password2.errors?.['required']">Please confirm your password.</small>
+          <small *ngIf="password2.errors?.['required'] && password1.value !== password2.value && password2.touched"><br/></small>
+          <small *ngIf="password1.value !== password2.value">Passwords must match.</small>
+          </div>
+      </div>
+  
+      <!-- Submit Button -->
+      <small *ngIf="password2.errors?.['required'] && password1.value !== password2.value && password2.touched"><br/></small>
+      <button type="submit" class="btn" [disabled]="signupForm.invalid">Sign Up</button>
     </form>
-</div>
+  </div>
