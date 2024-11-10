@@ -26,6 +26,7 @@ export class SidebarComponent implements OnInit {
   signOut(): void {
     if(this.loggedIn) {
       this.auth.logout();
+      this.loggedIn = false;
 
       if(this.router.url == '/create.post')
         this.router.navigate(['/home']);
