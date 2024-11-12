@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class GetPostsService {
-  private apiUrl = "http://localhost:3000/api/allPosts"
+  private apiUrl = "http://localhost:3000/api/allPosts";
 
   constructor(private http: HttpClient) { }
 

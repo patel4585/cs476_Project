@@ -7,11 +7,9 @@ exports.savePost = asyncHandler(async (req, res, next) => {
         return res.status(400).json({ success: false, message: "User ID is required" });
     }
 
-    let user_id = new mongoose.Types.ObjectId(req.body.post.user._id);
-
     // Create a new instance of the Post model
     const post = new Post({
-        user: user_id,
+        user: req.body.post.user._id,
         amount_willing_to_pay: req.body.post.amount_willing_to_pay,
         amount_willing_to_pay_currency: req.body.post.amount_willing_to_pay_currency,
         desired_amount_in_return: req.body.post.desired_amount_in_return,

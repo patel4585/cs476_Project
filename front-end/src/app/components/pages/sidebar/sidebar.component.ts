@@ -16,17 +16,20 @@ import { NgIf } from '@angular/common';
 })
 export class SidebarComponent implements OnInit {
   loggedIn: boolean | null = null;
+  isAdmin: boolean = false;
 
   constructor(private auth: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.loggedIn = this.auth.isLoggedIn();
+    this.isAdmin = this.auth.isAdmin();
   }
 
   signOut(): void {
     if(this.loggedIn) {
       this.auth.logout();
       this.loggedIn = false;
+      this.isAdmin = false;
 
       if(this.router.url == '/create.post')
         this.router.navigate(['/home']);
