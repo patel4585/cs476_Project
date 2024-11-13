@@ -2,6 +2,7 @@
   <h1 class="visually-hidden">Home Page</h1>
 
   <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-light" style="width: 280px; height: 100%">
+
    <!-- <a href="/home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-black text-decoration-none">
       <img src="/assets/logo-only.png" alt="Logo" class="logo me-2">
       <div>
@@ -11,11 +12,13 @@
     </a>
     <hr /> -->
     <a href="/home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-black text-decoration-none">
+
       <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-brilliance" viewBox="0 0 16 16">
         <path d="M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16M1 8a7 7 0 0 0 7 7 3.5 3.5 0 1 0 0-7 3.5 3.5 0 1 1 0-7 7 7 0 0 0-7 7"/>
       </svg>
 
-      <span class="fs-4" style="color: #635e5e; padding-left: 8px;">Remit Wolf</span>
+      <span class="fs-4" style="color: #635e5e; padding-left: 8px;">Remit Wise</span>
+
     </a> <hr />
 
     <ul class="nav nav-pills flex-column mb-auto">
@@ -52,6 +55,15 @@
         </a>
       </li>
 
+      <li id="ManageUsers" *ngIf="isAdmin">
+        <a [routerLink]="'/users'" class="nav-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi pe-none me-2" viewBox="0 0 16 16">
+            <path d="M0 .5A.5.5 0 0 1 .5 0h15a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H14v2h1.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H14v2h1.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5H2v-2H.5a.5.5 0 0 1-.5-.5v-3A.5.5 0 0 1 .5 6H2V4H.5a.5.5 0 0 1-.5-.5zM3 4v2h4.5V4zm5.5 0v2H13V4zM3 10v2h4.5v-2zm5.5 0v2H13v-2zM1 1v2h3.5V1zm4.5 0v2h5V1zm6 0v2H15V1zM1 7v2h3.5V7zm4.5 0v2h5V7zm6 0v2H15V7zM1 13v2h3.5v-2zm4.5 0v2h5v-2zm6 0v2H15v-2z"/>
+          </svg>
+          Manage Users
+        </a>
+      </li>
+
       <li id="Login" *ngIf="!loggedIn">
         <a [routerLink]="'/login'" class="nav-link">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="bi pe-none me-2" width="16"
@@ -64,8 +76,8 @@
     </ul> <hr />
 
     <div class="dropdown" *ngIf="loggedIn">
-      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-        data-bs-toggle="dropdown" aria-expanded="false">
+      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle show"
+        data-bs-toggle="dropdown" aria-expanded="true">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="rounded-circle me-2" width="32"
           height="32">
           <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
@@ -83,7 +95,7 @@
             transform: translate(0px, -34px);
           " data-popper-placement="top-start">
         <li>
-          <a class="dropdown-item" href="/profile" style="color: #635e5e">Profile</a>
+          <a class="dropdown-item" [routerLink]="'/profile'" style="color: #635e5e">Profile</a>
         </li>
 
         <li>

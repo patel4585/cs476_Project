@@ -5,6 +5,7 @@ var router = express.Router();
 const allPostsController = require("../controllers/allPostsController");
 const authController = require("../controllers/authController");
 const createPostController = require("../controllers/createPostController");
+const manageUsersController = require("../controllers/manageUsersController");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -16,5 +17,7 @@ router.get('/api/allPosts', allPostsController.allPosts_List);
 router.post('/api/login', authController.loginValidation);
 router.post('/api/savePost', createPostController.savePost);
 router.post('/api/signUp', authController.signUpValidation);
+router.get('/api/getAllUsers', manageUsersController.allUsers_List);
+router.post('/api/deleteUser', manageUsersController.deleteUser);
 
 module.exports = router;

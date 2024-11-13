@@ -22,7 +22,7 @@ export class SavePostService {
       }),
       catchError(error => {
         console.error('Error occurred:', error);
-        return of(null); // Return a safe value or rethrow the error
+        return of(null); 
       })
     )
   }

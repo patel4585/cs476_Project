@@ -1,0 +1,8 @@
+.email {
+    position: absolute;
+    left: 40%;
+}
+
+li svg {
+    cursor: pointer;
+}
