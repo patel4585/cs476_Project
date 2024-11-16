@@ -16,6 +16,6 @@ export class GetPostsService {
   }
 
   deletePost(postId: string): Observable<any> {
-    return this.http.post<any>(this.apiUrl_2, { postId });
+    return this.http.delete<any>(this.apiUrl_2, { body: { postId } });
   }
 }
