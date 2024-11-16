@@ -29,3 +29,9 @@
   font-size: 0.9em;
   color: #666;
 }
+
+.delete-button {
+  position: absolute;
+  top: 10px;
+  left: 3.7%;
+}

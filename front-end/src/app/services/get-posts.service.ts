@@ -6,11 +6,16 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class GetPostsService {
-  private apiUrl = "http://localhost:3000/api/allPosts";
+  private apiUrl_1 = "http://localhost:3000/api/allPosts";
+  private apiUrl_2 = "http://localhost:3000/api/deletePost";
 
   constructor(private http: HttpClient) { }
 
   getAllPosts(): Observable<any> {
-    return this.http.get<any>(this.apiUrl);
+    return this.http.get<any>(this.apiUrl_1);
+  }
+
+  deletePost(postId: string): Observable<any> {
+    return this.http.post<any>(this.apiUrl_2, { postId });
   }
 }

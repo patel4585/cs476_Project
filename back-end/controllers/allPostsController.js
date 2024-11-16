@@ -7,3 +7,11 @@ exports.allPosts_List = asyncHandler(async (req, res, next) => {
     
     res.status(200).json(allPosts);
 });
+
+exports.deletePost = asyncHandler(async (req, res, next) => {
+    const { postId } = req.body;
+
+    await Post.deleteOne({_id: postId});
+
+    return res.status(200).json({ success: true, message: "Post Deleted Successfully" });
+});

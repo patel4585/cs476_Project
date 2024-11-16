@@ -17,5 +17,5 @@ exports.deleteUser = asyncHandler(async (req, res, next) => {
     await User.deleteOne({ _id: userId });
 
     // return a success message
-    return res.status(201).json({ success: true, message: "User Deleted Successfully" });
+    return res.status(200).json({ success: true, message: "User Deleted Successfully" });
 });

@@ -52,6 +52,7 @@ export class CreatePostComponent implements OnInit {
 
     if(userData){
       let post: Post = { 
+        _id: "PlaceHolder",
         user: JSON.parse(userData),
         amount_willing_to_pay: this.amount_willing_to_pay, 
         amount_willing_to_pay_currency: this.selectedCurrency1,
