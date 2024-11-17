@@ -5,6 +5,7 @@ const User = require('../models/user');
 const mongoose = require('mongoose');
 
 var user = null;
+var savedUser00 = null;
 
 before(async () => {
     if (mongoose.connection.readyState !== 1) {
@@ -44,6 +45,7 @@ describe('Auth Routes', () => {
           // Checking if the user exists in the database
           const savedUser = await User.findOne({ email: 'test@example.com' });
           expect(savedUser).to.not.be.null;
+          savedUser00 = savedUser;
         });
       });
 
@@ -77,5 +79,40 @@ describe('Auth Routes', () => {
             expect(res.body.success).to.be.false;
             expect(res.body.message).to.equal('Incorrect password');
         });
+    });
+
+    describe("POST /api/profileUpdate", () => {
+      it("should update the user's profile successfully", async () => {
+        const updatedProfile = {
+          firstName: "Updated",
+          lastName: "Name",
+          _id: savedUser00._id,
+        };
+  
+        const res = await request(app).post("/api/profileUpdate").send(updatedProfile);
+  
+        expect(res.status).to.equal(200);
+        expect(res.body.success).to.be.true;
+        expect(res.body.user).to.have.property('_id', savedUser00._id.toString());
+        expect(res.body.user.first_name).to.equal("Updated");
+        expect(res.body.user.last_name).to.equal("Name");
+  
+        // Verify the user is updated in the database
+        const updatedUser = await User.findById(savedUser00._id);
+        expect(updatedUser.first_name).to.equal("Updated");
+        expect(updatedUser.last_name).to.equal("Name");
+      });
+  
+      it("should return 404 if the user does not exist", async () => {
+        const res = await request(app).post("/api/profileUpdate").send({
+          _id: new mongoose.Types.ObjectId(), // Random non-existent ID
+          firstName: "Does",
+          lastName: "Not Exist",
+        });
+  
+        expect(res.status).to.equal(404);
+        expect(res.body.success).to.be.false;
+        expect(res.body.message).to.equal("User not found");
+      });
     });
 });

@@ -21,5 +21,6 @@ router.get('/api/getAllUsers', manageUsersController.allUsers_List);
 router.post('/api/deleteUser', manageUsersController.deleteUser);
 router.post('/api/deletePost', allPostsController.deletePost);
 router.post('/api/getPost', allPostsController.getPost);
+router.post('/api/profileUpdate', authController.profileUpdate);
 
 module.exports = router;

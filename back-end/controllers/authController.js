@@ -39,3 +39,15 @@ exports.signUpValidation = asyncHandler(async (req, res, next) => {
   // Retrun a success message
   return res.status(201).json({ success: true, message: "User Account Created Successfully"});
 });
+
+exports.profileUpdate = asyncHandler(async (req, res, next) => {
+  const { firstName, lastName, _id } = req.body;
+
+  // Looking the user by email
+  const user = await User.findOneAndUpdate({ _id: _id }, { first_name: firstName, last_name: lastName}, { new: true });
+  if(!user)
+      return res.status(404).json({ success: false, message: "User not found" });
+
+  // Update successful
+  return res.status(200).json({ success: true, user }); 
+});

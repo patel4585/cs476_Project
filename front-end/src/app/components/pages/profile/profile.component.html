@@ -2,20 +2,22 @@
     <h5>Please log in to use the Profile Page.</h5>
 </div>
 
-<form *ngIf="isLogged" (submit)="onUpdateProfile(firstName.value, lastName.value)">
+<form *ngIf="isLogged" (submit)="onUpdateProfile()">
     <h3>Profile</h3>
     <hr>
+
+    <div class="alert alert-success" role="alert" *ngIf="updateBool">Update Operation Successful</div>
 
     <!-- First Name -->
     <div class="mb-3">
         <label for="firstName_"> First Name </label>
-        <input name="firstName_" type="text" placeholder="First Name" class="form-control" #firstName required>
+        <input name="firstName_" name="FirstName" [(ngModel)]="firstName" type="text" placeholder="First Name" class="form-control" required>
     </div>
 
     <!-- Last Name -->
     <div class="mb-3">
         <label for="lastName_"> Last Name </label>
-        <input name="lastName_" type="text" placeholder="Last Name" class="form-control" #lastName required>
+        <input name="lastName_" name="LastName" [(ngModel)]="lastName" type="text" placeholder="Last Name" class="form-control" required>
     </div>
 
     <button type="submit" class="btn btn-primary">Update</button>

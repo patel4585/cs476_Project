@@ -11,6 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class AuthService {
   private loginUrl = 'http://localhost:3000/api/login';
   private signUpUrl = 'http://localhost:3000/api/signUp';
+  private profileUrl = 'http://localhost:3000/api/profileUpdate';
 
   constructor(private http: HttpClient, private router: Router, private activatedRoute: ActivatedRoute) {}
 
@@ -52,5 +53,24 @@ export class AuthService {
     }
 
     return false;
+  }
+
+  updateProfile(firstName: string, lastName: string, _id: string): Observable<any> {
+    return this.http.post<any>(this.profileUrl, { firstName, lastName, _id }).pipe(
+      tap(response => {
+        if (response.success) {
+          const userData = localStorage.getItem('user');
+
+          if(userData) {
+            const user:User = JSON.parse(userData);
+
+            user.first_name = response.user.first_name;
+            user.last_name = response.user.last_name;
+
+            localStorage.setItem('user', JSON.stringify(user));
+          }
+        }
+      })
+    );
   }
 }
