@@ -21,7 +21,7 @@ export class AppComponent {
     this.router.events.subscribe(() => {
       // set where the side bar needs to shown
       const currentRoute = this.router.url;
-      this.showSidebar = ['/', '/home', '/create.post', '/posts', '/profile', '/users'].includes(currentRoute);
+      this.showSidebar = ['/', '/home', '/create.post', '/posts', '/profile', '/users'].includes(currentRoute) || /^\/edit\//.test(currentRoute);
     });
   }
 }

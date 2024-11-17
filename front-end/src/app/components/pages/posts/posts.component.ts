@@ -3,6 +3,7 @@ import { DatePipe, NgFor, NgIf } from '@angular/common';
 import { GetPostsService } from '../../../services/get-posts.service';
 import { Post } from '../../../models/post';
 import { User } from '../../../models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'posts',
@@ -15,7 +16,7 @@ export class PostsComponent implements OnInit {
   posts: Post[] = [];
   user: User | null = null;
 
-  constructor(private getPosts: GetPostsService) {}
+  constructor(private getPosts: GetPostsService, private router: Router) {}
 
   ngOnInit(): void {
     this.getPosts.getAllPosts().subscribe((data) => {
@@ -27,12 +28,16 @@ export class PostsComponent implements OnInit {
       this.user = JSON.parse(userData);
   }
 
-  delete(postId: string) {
+  delete(postId: string): void {
     this.getPosts.deletePost(postId).subscribe({
       next: (Response) => {
         console.log("Post Deleted", Response);
         this.posts = this.posts.filter(post => post._id !== postId);
       }
     });
+  }
+
+  edit(postId: string): void {
+    this.router.navigate(['/edit/' + postId]);
   }
 }

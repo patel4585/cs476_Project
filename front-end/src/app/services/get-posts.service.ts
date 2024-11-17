@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 export class GetPostsService {
   private apiUrl_1 = "http://localhost:3000/api/allPosts";
   private apiUrl_2 = "http://localhost:3000/api/deletePost";
+  private apiUrl_3 = "http://localhost:3000/api/getPost";
 
   constructor(private http: HttpClient) { }
 
@@ -17,5 +18,9 @@ export class GetPostsService {
 
   deletePost(postId: string): Observable<any> {
     return this.http.post<any>(this.apiUrl_2, { postId });
+  }
+
+  getPost(postId: string): Observable<any> {
+    return this.http.post<any>(this.apiUrl_3, { postId });
   }
 }

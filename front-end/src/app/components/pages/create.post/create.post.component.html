@@ -3,7 +3,9 @@
 </div>
 
 <form name="createpost" (ngSubmit)="submit()" *ngIf="isLogged">
-  <h3>Create a post</h3> <hr>
+  <h3 *ngIf="!isEditMode">Create a post</h3> 
+  <h3 *ngIf="isEditMode">Edit a post</h3> 
+  <hr>
 
   <div>
     <span class="input-box">

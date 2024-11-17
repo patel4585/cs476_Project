@@ -33,5 +33,11 @@
 .delete-button {
   position: absolute;
   top: 10px;
-  left: 3.7%;
+  left: 9%;
+}
+
+.edit-button {
+  position: absolute;
+  top: 10px;
+  left: 3.5%;
 }

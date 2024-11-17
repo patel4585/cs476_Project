@@ -15,3 +15,14 @@ exports.deletePost = asyncHandler(async (req, res, next) => {
 
     return res.status(200).json({ success: true, message: "Post Deleted Successfully" });
 });
+
+exports.getPost = asyncHandler(async (req, res, next) => {
+    const { postId } = req.body;
+
+    const post = await Post.findOne({ _id: postId });
+    if (!post) {
+        return res.status(404).json({ success: false, message: "Post not found" });
+    }
+
+    return res.status(200).json({ success: true, message: "Post returned successfully", post });
+});

@@ -3,6 +3,7 @@
 <div class="posts-container">
   <div *ngFor="let post of posts" class="post">
     <ul class="ul-list">
+      <button (click)="edit(post._id)" *ngIf="user?._id == post.user._id" type="button" class="btn btn-outline-success edit-button">Edit</button>
       <button (click)="delete(post._id)" *ngIf="user?._id == post.user._id" type="button" class="btn btn-outline-danger delete-button">Delete</button> <br/>
       <li>{{post.user.first_name}} {{post.user.last_name}}</li>
       <li class="ul-list-date">{{post.updatedAt | date: 'dd MMMM yyyy, h:mm a'}}</li>

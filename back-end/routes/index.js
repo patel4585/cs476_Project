@@ -20,5 +20,6 @@ router.post('/api/signUp', authController.signUpValidation);
 router.get('/api/getAllUsers', manageUsersController.allUsers_List);
 router.post('/api/deleteUser', manageUsersController.deleteUser);
 router.post('/api/deletePost', allPostsController.deletePost);
+router.post('/api/getPost', allPostsController.getPost);
 
 module.exports = router;

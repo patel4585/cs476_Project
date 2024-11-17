@@ -18,5 +18,6 @@ export const routes: Routes = [
     {path: 'create.post', component: CreatePostComponent},
     {path: 'signup', component: SignupComponent},
     {path: 'profile', component: ProfileComponent},
-    {path: 'users', component: ManageUsersComponent}
+    {path: 'users', component: ManageUsersComponent},
+    {path: 'edit/:_id', component: CreatePostComponent}
 ];

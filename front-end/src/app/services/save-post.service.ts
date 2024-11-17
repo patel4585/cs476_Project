@@ -15,7 +15,6 @@ export class SavePostService {
   savePost(post: Post): Observable<any> {
     return this.http.post<any>(this.apiUrl, { post }).pipe(
       tap(response => {
-        console.log("here");
         if (!response.success) {
           console.log(response.message);
         }

@@ -5,7 +5,8 @@ import { User } from '../../../models/user';
 import { FormsModule } from '@angular/forms';
 import { Post } from '../../../models/post';
 import { SavePostService } from '../../../services/save-post.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { GetPostsService } from '../../../services/get-posts.service';
 
 @Component({
   selector: 'create.post',
@@ -27,8 +28,17 @@ export class CreatePostComponent implements OnInit {
   selectedCurrency2: string = "";
   userID: string = "";
   addionalDetails: string = "";
+  isEditMode: boolean = false;
+  postId: string = "PlaceHolder";
 
-  constructor(private auth: AuthService, private savePost: SavePostService, private router: Router) {}
+  constructor(private auth: AuthService, private savePost: SavePostService, private router: Router, private route: ActivatedRoute, private getPosts: GetPostsService) {
+    this.route.params.subscribe(params => {
+      if(params['_id']){
+        this.isEditMode = true;
+        this.postId = params['_id'];
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.isLogged = this.auth.isLoggedIn();
@@ -44,6 +54,16 @@ export class CreatePostComponent implements OnInit {
         this.email = user.email;
         this.userID = user._id;
       }
+
+      if(this.isEditMode) {
+        this.getPosts.getPost(this.postId).subscribe((data) => {
+          this.amount_willing_to_pay = data.post.amount_willing_to_pay;
+          this.selectedCurrency1 = data.post.amount_willing_to_pay_currency;
+          this.desired_amount_in_return = data.post.desired_amount_in_return;
+          this.selectedCurrency2 = data.post.desired_amount_in_return_currency;
+          this.addionalDetails = data.post.additional_details;
+        })
+      }
     }
   }
 
@@ -52,7 +72,7 @@ export class CreatePostComponent implements OnInit {
 
     if(userData){
       let post: Post = { 
-        _id: "PlaceHolder",
+        _id: this.postId,
         user: JSON.parse(userData),
         amount_willing_to_pay: this.amount_willing_to_pay, 
         amount_willing_to_pay_currency: this.selectedCurrency1,
