@@ -5,17 +5,18 @@ const Post = require('../models/post');
 const User = require('../models/user');
 const { expect } = require('chai');
 
-var user, post1, post2 = null;
+var user = null;
+var insertedPosts = [];
 
 before(async () => {
   user = new User({ first_name: 'Test', last_name:'User', email: 'testuser@example.com',  password: 'Snow1234#'});
   await user.save();
 
   const posts = [
-    post1 = new Post({ user: user._id, amount_willing_to_pay: 1, amount_willing_to_pay_currency: 'USD', desired_amount_in_return: 80, desired_amount_in_return_currency: 'INR', additional_details: '', updatedAt: new Date() }),
-    post2 = new Post({ user: user._id, amount_willing_to_pay: 2, amount_willing_to_pay_currency: 'USD', desired_amount_in_return: 160, desired_amount_in_return_currency: 'INR', additional_details: '', updatedAt: new Date(Date.now() + 5000) }),
+    new Post({ user: user._id, amount_willing_to_pay: 1, amount_willing_to_pay_currency: 'USD', desired_amount_in_return: 80, desired_amount_in_return_currency: 'INR', additional_details: '', updatedAt: new Date() }),
+    new Post({ user: user._id, amount_willing_to_pay: 2, amount_willing_to_pay_currency: 'USD', desired_amount_in_return: 160, desired_amount_in_return_currency: 'INR', additional_details: '', updatedAt: new Date(Date.now() + 5000) }),
   ];
-  await Post.insertMany(posts);
+  insertedPosts = await Post.insertMany(posts);
 });
 
 after(async () => {
@@ -38,10 +39,14 @@ describe('GET allPosts', () => {
   });
 
   it('should delete created posts in the previous step', async () => {
-    const response = await request(app).delete('/api/deletePost', { body: post1 });
+    const response = await request(app)
+      .post('/api/deletePost')
+      .send({ postId: insertedPosts[0]._id }); 
     expect(response.status).to.equal(200);
-
-    const response2 = await request(app).delete('/api/deletePost', { body: post2} );
+  
+    const response2 = await request(app)
+      .post('/api/deletePost')
+      .send({ postId: insertedPosts[1]._id }); 
     expect(response2.status).to.equal(200);
   });
 });

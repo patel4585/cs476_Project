@@ -19,6 +19,6 @@ router.post('/api/savePost', createPostController.savePost);
 router.post('/api/signUp', authController.signUpValidation);
 router.get('/api/getAllUsers', manageUsersController.allUsers_List);
 router.post('/api/deleteUser', manageUsersController.deleteUser);
-router.delete('/api/deletePost', allPostsController.deletePost);
+router.post('/api/deletePost', allPostsController.deletePost);
 
 module.exports = router;
