@@ -22,6 +22,7 @@ exports.loginValidation = asyncHandler(async (req, res, next) => {
 
 exports.signUpValidation = asyncHandler(async (req, res, next) => {
   const { user } = req.body;
+  const hashedPassword = await bcrypt.hash(user.password, 10);
 
   // Create a new instance of the user model
   const user01 = new User({
@@ -29,7 +30,7 @@ exports.signUpValidation = asyncHandler(async (req, res, next) => {
     last_name: user.last_name,
     email: user.email,
     role: user.role,
-    password: user.password
+    password: hashedPassword
   });
 
   // Save the new User to the database

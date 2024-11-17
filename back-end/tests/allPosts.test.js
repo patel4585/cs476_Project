@@ -9,6 +9,12 @@ var user = null;
 var insertedPosts = [];
 
 before(async () => {
+  const mongoDB = "mongodb+srv://dpl190:rJk9CU79flrUVs7B@cluster0.mx1kcjl.mongodb.net/cs476_project?retryWrites=true&w=majority";
+  await mongoose.connect(mongoDB, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
+  
   user = new User({ first_name: 'Test', last_name:'User', email: 'testuser@example.com',  password: 'Snow1234#'});
   await user.save();
 
