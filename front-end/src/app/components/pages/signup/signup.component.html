@@ -1,6 +1,8 @@
 <div class="wrapper">
     <form #signupForm="ngForm" (submit)="onSubmit()" novalidate>
       <h1>Sign Up</h1>
+
+      <div class="alert alert-danger" role="alert" *ngIf="signupFailed">SignUp failed. An account with this email already exists.</div>
   
       <!-- First Name -->
       <div class="input-box">

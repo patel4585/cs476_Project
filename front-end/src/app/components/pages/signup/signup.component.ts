@@ -20,6 +20,7 @@ export class SignupComponent implements OnInit, OnDestroy {
   lastName: string = "";
   email: string = "";
   password: string = "";
+  signupFailed: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -58,11 +59,14 @@ export class SignupComponent implements OnInit, OnDestroy {
       next: (response) => {
         if (response.success)
           this.router.navigate(['/home']);
-        else 
+        else {
           console.log("SignUp Filed");
+          this.signupFailed = true;
+        }
       },
       error: (error) => {
         console.log('An error occurred', error.message);
+        this.signupFailed = true;
       }
     });
   }

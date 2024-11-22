@@ -63,7 +63,8 @@ export class LoginComponent implements OnInit, OnDestroy {
       },
       error: (error) => {
         this.error_message_hidden = false;
-        this.error_message = "An error occurred during logging in - " + error.message;
+        this.error_message = "Invalid email or password";
+        console.log("An error occurred during logging in - " + error.message);
       }
     })
   }

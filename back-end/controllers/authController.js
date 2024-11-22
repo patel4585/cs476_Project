@@ -24,6 +24,12 @@ exports.signUpValidation = asyncHandler(async (req, res, next) => {
   const { user } = req.body;
   const hashedPassword = await bcrypt.hash(user.password, 10);
 
+  // Looking the user by email
+  const emailTemp = user.email;
+  const userTemp = await User.findOne({ email: emailTemp });
+  if(userTemp)
+      return res.status(409).json({ success: false, message: "User already exists" });
+
   // Create a new instance of the user model
   const user01 = new User({
     first_name: user.first_name,
@@ -37,7 +43,7 @@ exports.signUpValidation = asyncHandler(async (req, res, next) => {
   const savedUser = await user01.save();
 
   // Retrun a success message
-  return res.status(201).json({ success: true, message: "User Account Created Successfully"});
+  return res.status(201).json({ success: true, message: "User Account Created Successfully", savedUser});
 });
 
 exports.profileUpdate = asyncHandler(async (req, res, next) => {

@@ -40,7 +40,14 @@ export class AuthService {
   }
 
   signUp(user: User) {
-    return this.http.post<any>(this.signUpUrl, { user });
+    return this.http.post<any>(this.signUpUrl, { user }).pipe(
+      tap(response => {
+        if (response.success) {
+          // Store user info in local storage
+          localStorage.setItem('user', JSON.stringify(response.savedUser));
+        }
+      })
+    );
   }
 
   isAdmin(): boolean {

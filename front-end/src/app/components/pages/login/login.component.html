@@ -2,6 +2,8 @@
   <form #loginForm="ngForm" (submit)="onLogin()" novalidate>
     <h1>Login</h1>
 
+    <div *ngIf="!error_message_hidden" class="alert alert-danger"> {{ error_message }}</div>
+
     <!-- Email -->
     <div class="input-box">
       <input type="email" placeholder="Email" name="email" [(ngModel)]="email" required email #emailCtrl="ngModel">
